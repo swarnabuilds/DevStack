@@ -2,7 +2,7 @@
 import logo from '../../assets/logo-text.png'
 const Nav = () => {
     return (
-        <div className="navbar container mx-auto py-4">
+        <div className="navbar container mx-auto py-4 sticky">
         <div className="navbar-start">
             <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
