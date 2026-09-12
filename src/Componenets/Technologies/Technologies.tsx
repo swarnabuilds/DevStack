@@ -50,6 +50,22 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
         const remainingStack = selectedStack.filter(stack => stack.id !== id);
         setSelectedStack(remainingStack)
     }
+
+    //remove all from stack 
+    const handelRemoveAllFromStack = () =>{
+        setSelectedStack([]);
+        toast('Remove All Technology From Your Stack', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+    }
     return (
         
         <div className="container mx-auto">
@@ -119,6 +135,14 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
                         </div>
                     ))}
                     </div>
+                )}
+                {selectedStack.length > 0 && (
+                    <button
+                    onClick={handelRemoveAllFromStack}
+                    className="w-full mt-4 py-2 text-xs font-semibold text-red-500 hover:text-red-700 hover:bg-red-50 rounded-xl border border-red-200 transition-colors cursor-pointer"
+                    >
+                    Remove All
+                    </button>
                 )}
                 </div>
 
