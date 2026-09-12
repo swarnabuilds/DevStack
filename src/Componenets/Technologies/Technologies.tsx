@@ -2,6 +2,7 @@ import { use, useState } from "react";
 import type { ITechnology } from "../../index";
 import Technology from "../Technology/Technology";
 import { Bounce, toast } from "react-toastify";
+import { MdDeleteForever } from "react-icons/md";
 
 interface technologyProps {
    technologyPromise: Promise<ITechnology[]> 
@@ -74,15 +75,42 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
 
 
             {/* //right content  */}
-            <div className="lg:col-span-3 border border-gray-100 rounded-3xl p-6 bg-white shadow-sm">
-                <div className="flex justify-between items-center mb-1">
-                <h3 className="text-xl font-bold text-gray-900">Your Stack</h3>
-                <span className="bg-pink-100 text-[#EC4899] font-bold text-xs px-2.5 py-1 rounded-full">
-                    {/* //count  */}
-                    {selectedStack.length}
-                </span>
+            <div className="lg:col-span-3 border border-gray-100 rounded-3xl p-6 bg-white shadow-sm sticky top-24">
+                <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900">Your Stack</h3>
+                    <p className="text-gray-400 font-normal text-sm mt-1">
+                    {selectedStack.length === 0
+                        ? "No technologies selected yet."
+                        : `${selectedStack.length} selected`}
+                    </p>
                 </div>
-            </div>
+
+                {selectedStack.length === 0 ? (
+                    <div className="border-2 border-dashed border-gray-200 rounded-2xl p-8 text-center text-gray-400 text-sm font-medium bg-white">
+                    Your stack is empty.
+                    </div>
+                ) : (
+                    <div className="space-y-3">
+                    {selectedStack.map((stack) => (
+                        <div
+                        key={stack.id}
+                        className="flex items-center justify-between p-3 border border-gray-100 rounded-xl bg-gray-50"
+                        >
+                              <div className="flex items-center gap-3">
+                                <img src={stack.icon} alt={stack.name} className="w-6 h-6 object-contain" />
+                                <span className="text-sm font-semibold text-gray-800">{stack.name}</span>
+                                </div>
+
+                            <button 
+                                className="text-red-500 hover:text-red-700 text-xl cursor-pointer transition-colors"
+                            >
+                                <MdDeleteForever />
+                            </button>
+                        </div>
+                    ))}
+                    </div>
+                )}
+                </div>
 
         </div>
         </div>
