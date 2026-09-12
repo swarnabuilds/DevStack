@@ -25,7 +25,7 @@ const Footer = () => {
 
           {/* Product Links */}
           <div className="space-y-3">
-            <h6 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Product</h6>
+            <h6 className="text-md font-bold text-gray-900 uppercase tracking-wider">Product</h6>
             <ul className="space-y-2 text-sm text-gray-500">
               <li><a href="#" className="hover:text-gray-900 transition">Home</a></li>
               <li><a href="#" className="hover:text-gray-900 transition">Technologies</a></li>
@@ -35,7 +35,7 @@ const Footer = () => {
 
           {/* Company Links */}
           <div className="space-y-3">
-            <h6 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Company</h6>
+            <h6 className="text-md font-bold text-gray-900 uppercase tracking-wider">Company</h6>
             <ul className="space-y-2 text-sm text-gray-500">
               <li><a href="#" className="hover:text-gray-900 transition">About</a></li>
               <li><a href="#" className="hover:text-gray-900 transition">Contact</a></li>
@@ -45,7 +45,7 @@ const Footer = () => {
 
           {/* Legal Links */}
           <div className="space-y-3">
-            <h6 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Legal</h6>
+            <h6 className="text-md font-bold text-gray-900 uppercase tracking-wider">Legal</h6>
             <ul className="space-y-2 text-sm text-gray-500">
               <li><a href="#" className="hover:text-gray-900 transition">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-gray-900 transition">Terms of Service</a></li>
@@ -55,8 +55,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
-          <p>© 2026 Dev Stack. All rights reserved.</p>
+        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-md text-gray-400 gap-4">
+          <p className='text-4'>© 2026 Dev Stack. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-gray-600 transition">Privacy</a>
             <a href="#" className="hover:text-gray-600 transition">Terms</a>
