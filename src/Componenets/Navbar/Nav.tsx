@@ -2,8 +2,8 @@ import logo from '../../assets/logo-text.png';
 
 const Nav = () => {
     return (
-        <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-gray-100">
-            <div className="navbar container mx-auto py-4">
+        <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-gray-100">
+            <div className="navbar container mx-auto px-4 md:px-0 py-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -13,7 +13,7 @@ const Nav = () => {
                         </div>
                         <ul
                             tabIndex={-1}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 shadow">
                             <li><a>Home</a></li>
                             <li><a>Technologies</a></li>
                             <li><a>Projects</a></li>

@@ -2,8 +2,8 @@
 import bannerImg from '../../assets/banner-stack.png'
 const Banner = () => {
     return (
-<div className="container mx-auto py-12 px-4 md:px-0">
-  <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-10">
+<div className="container mx-auto px-4 md:px-0">
+  <div className="min-h-screen flex flex-col-reverse lg:flex-row justify-between items-center ">
     
     {/* Left Side Content */}
     <div className="max-w-[570px] text-left">
@@ -34,7 +34,7 @@ const Banner = () => {
     <img
       alt="Banner Image"
       src={bannerImg}
-      className="w-full max-w-[500px] object-contain"
+      className=" max-h-[700px] object-contain"
     />
 
   </div>

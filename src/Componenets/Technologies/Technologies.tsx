@@ -14,22 +14,7 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
     //for selected stack 
     const [selectedStack, setSelectedStack] = useState<ITechnology[]>([])
     const handelAddToStack = (tech:ITechnology) =>{
-        //check already stack exist or not 
-        const isExist = selectedStack.find(stack => stack.id === tech.id)
-        if (isExist) {
-            toast.error("Stack is already selected", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-            });
-        } else {
-            setSelectedStack([...selectedStack, tech]);
+     setSelectedStack([...selectedStack, tech]);
             toast.success("Added Your Stack", {
             position: "top-right",
             autoClose: 5000,
@@ -41,14 +26,24 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
             theme: "light",
             transition: Bounce,
             });
-        }
 
     }
 
     //remove stack handel 
     const handelRemoveStack = (id:number) => {
         const remainingStack = selectedStack.filter(stack => stack.id !== id);
-        setSelectedStack(remainingStack)
+        setSelectedStack(remainingStack);
+        toast('Remove Technology From Your Stack', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
     }
 
     //remove all from stack 
@@ -69,7 +64,7 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
     return (
         
         <div className="container mx-auto">
-            <div className="px-4 md:px-0 py-8">
+            <div className="px-4 md:px-0 py-12 md:py-0">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
                     Explore the{" "}
                     <span className="bg-gradient-to-r from-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent">
@@ -81,7 +76,7 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
                 </p>
             </div>
 
-           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start py-8">
             {/* //left content  */}
             <div className="lg:col-span-9">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -90,6 +85,7 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
                     key={tech.id}
                     tech={tech}
                     handelAddToStack={handelAddToStack}
+                    selectedStack={selectedStack}
                     />
                 ))}
                 </div>
@@ -97,7 +93,7 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
 
 
             {/* //right content  */}
-            <div className="lg:col-span-3 border border-gray-100 rounded-3xl p-6 bg-white shadow-sm sticky top-24">
+            <div className="lg:col-span-3 border border-gray-100 rounded-3xl p-6 bg-white shadow-sm">
                 <div className="mb-6">
                     <h3 className="text-2xl font-bold text-gray-900">Your Stack</h3>
                     <p className="text-gray-400 font-normal text-sm mt-1">

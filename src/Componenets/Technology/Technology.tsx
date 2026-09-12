@@ -4,9 +4,12 @@ import { MdOutlineStar } from "react-icons/md";
 interface ITechProps{
     tech: ITechnology 
     handelAddToStack:(tech:ITechnology)=>void
+    selectedStack: ITechnology[]
 }
-const Technology = ({ tech, handelAddToStack }:ITechProps) => {
+const Technology = ({ tech, handelAddToStack, selectedStack }:ITechProps) => {
     const {name, category, description, icon, rating, difficulty, badge} = tech
+
+    const isSelected = selectedStack.some((item) => item.id === tech.id);
     return (
         <div className="border border-gray-100 rounded-3xl p-6 bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full">
               <div>
@@ -36,10 +39,16 @@ const Technology = ({ tech, handelAddToStack }:ITechProps) => {
                     <span className="text-yellow-400"><MdOutlineStar /></span> {rating}
                   </span>
                 </div>
-                <button
-                onClick={()=> handelAddToStack(tech)}
-                className="w-full bg-[#0F172A] text-white py-3 rounded-xl text-sm font-semibold hover:bg-slate-800 transition-colors">
-                  Add to Stack
+               <button
+                  disabled={isSelected}
+                  onClick={() => handelAddToStack(tech)}
+                  className={`w-full py-3 rounded-xl text-sm font-semibold transition-colors cursor-pointer ${
+                    isSelected
+                      ? "bg-pink-100 text-[#EC4899] cursor-not-allowed"
+                      : "bg-[#0F172A] text-white hover:bg-slate-800"
+                  }`}
+                >
+                  {isSelected ? "Added to Stack" : "Add to Stack"}
                 </button>
               </div>
         </div>
