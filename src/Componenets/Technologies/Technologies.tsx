@@ -44,6 +44,12 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
         }
 
     }
+
+    //remove stack handel 
+    const handelRemoveStack = (id:number) => {
+        const remainingStack = selectedStack.filter(stack => stack.id !== id);
+        setSelectedStack(remainingStack)
+    }
     return (
         
         <div className="container mx-auto">
@@ -81,7 +87,7 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
                     <p className="text-gray-400 font-normal text-sm mt-1">
                     {selectedStack.length === 0
                         ? "No technologies selected yet."
-                        : `${selectedStack.length} selected`}
+                        : `${selectedStack.length} Technology Selected`}
                     </p>
                 </div>
 
@@ -98,10 +104,14 @@ const Technologies = ({ technologyPromise }:technologyProps) => {
                         >
                               <div className="flex items-center gap-3">
                                 <img src={stack.icon} alt={stack.name} className="w-6 h-6 object-contain" />
-                                <span className="text-sm font-semibold text-gray-800">{stack.name}</span>
+                                <div>
+                                    <span className="text-sm font-semibold text-gray-800">{stack.name}</span>
+                                    <h2 className="text-gray-400">{stack.category}</h2>
+                                </div>
                                 </div>
 
                             <button 
+                            onClick={()=> handelRemoveStack(stack.id)}
                                 className="text-red-500 hover:text-red-700 text-xl cursor-pointer transition-colors"
                             >
                                 <MdDeleteForever />
